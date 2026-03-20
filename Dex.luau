@@ -414,27 +414,27 @@ holder)=='Instance','Inst must be Instance')ClearChildren(PropsScroll)local Kids
 =holder:GetChildren()if#Kids==0 then NewLabel({Text='No children.',Size=UDim2.
 new(1,0,0,30),Position=UDim2.new(0,10,0,4),TextColor3=Colors.Text3,TextSize=11,
 Parent=PropsScroll})PropsScroll.CanvasSize=UDim2.new(0,0,0,34)return end local
-RowH=30 for I,Child in Kids do local Ci=cloneref(Child)local Yy=(I-1)*RowH local
-Row=NewFrame({Size=UDim2.new(1,0,0,RowH),Position=UDim2.new(0,0,0,Yy),
-BackgroundTransparency=1,Parent=PropsScroll})Row.MouseEnter:Connect(function()
-TweenService:Create(Row,TweenInfo.new(0.06),{BackgroundTransparency=0,
+RowH=30 for I,Child in Kids do Kids[I]=cloneref(Child)Child=Kids[I]local Yy=(I-1
+)*RowH local Row=NewFrame({Size=UDim2.new(1,0,0,RowH),Position=UDim2.new(0,0,0,
+Yy),BackgroundTransparency=1,Parent=PropsScroll})Row.MouseEnter:Connect(function
+()TweenService:Create(Row,TweenInfo.new(0.06),{BackgroundTransparency=0,
 BackgroundColor3=Colors.Panel2}):Play()end)Row.MouseLeave:Connect(function()
 TweenService:Create(Row,TweenInfo.new(0.06),{BackgroundTransparency=1}):Play()
-end)local Tag,TagCol=GetClassTag(Ci)local Tl=NewLabel({Text=Tag,Size=UDim2.new(0
-,34,0,16),Position=UDim2.new(0,8,0.5,-8),BackgroundColor3=Color3.new(TagCol.R*
-0.2,TagCol.G*0.2,TagCol.B*0.2),BackgroundTransparency=0,TextColor3=TagCol,Font=
-FontBold,TextSize=8,TextXAlignment=Enum.TextXAlignment.Center,Parent=Row})
-AddCorner(2,Tl)NewLabel({Text=Ci.Name,Size=UDim2.new(0.55,-48,1,0),Position=
+end)local Tag,TagCol=GetClassTag(Child)local Tl=NewLabel({Text=Tag,Size=UDim2.
+new(0,34,0,16),Position=UDim2.new(0,8,0.5,-8),BackgroundColor3=Color3.new(TagCol
+.R*0.2,TagCol.G*0.2,TagCol.B*0.2),BackgroundTransparency=0,TextColor3=TagCol,
+Font=FontBold,TextSize=8,TextXAlignment=Enum.TextXAlignment.Center,Parent=Row})
+AddCorner(2,Tl)NewLabel({Text=Child.Name,Size=UDim2.new(0.55,-48,1,0),Position=
 UDim2.new(0,48,0,0),TextColor3=Colors.Text,TextSize=11,Parent=Row})NewLabel({
-Text=Ci.ClassName,Size=UDim2.new(0.45,-10,1,0),Position=UDim2.new(0.55,0,0,0),
-TextColor3=Colors.Text3,TextXAlignment=Enum.TextXAlignment.Right,TextSize=10,
+Text=Child.ClassName,Size=UDim2.new(0.45,-10,1,0),Position=UDim2.new(0.55,0,0,0)
+,TextColor3=Colors.Text3,TextXAlignment=Enum.TextXAlignment.Right,TextSize=10,
 Parent=Row})NewFrame({Size=UDim2.new(1,0,0,1),Position=UDim2.new(0,0,1,-1),
 BackgroundColor3=Colors.Border,BackgroundTransparency=0.6,Parent=Row})Row.
 InputBegan:Connect(function(Inp)if Inp.UserInputType~=Enum.UserInputType.
-MouseButton1 then return end SelectInstance(Ci)end)end PropsScroll.CanvasSize=
-UDim2.new(0,0,0,#Kids*RowH+4)end function SelectInstance(Inst)assert(typeof(Inst
-)=='Instance','Inst must be Instance')if SelInst and TreeRowRefs[SelInst]then
-local Ref=TreeRowRefs[SelInst]if Ref.Row and Ref.Row.Parent then Ref.Row.
+MouseButton1 then return end SelectInstance(Child)end)end PropsScroll.CanvasSize
+=UDim2.new(0,0,0,#Kids*RowH+4)end function SelectInstance(Inst)assert(typeof(
+Inst)=='Instance','Inst must be Instance')if SelInst and TreeRowRefs[SelInst]
+then local Ref=TreeRowRefs[SelInst]if Ref.Row and Ref.Row.Parent then Ref.Row.
 BackgroundTransparency=1 Ref.Accent.BackgroundTransparency=1 end end SelInst=
 Inst SelName.Text=Inst.Name SelClass.Text=Inst.ClassName SelPath.Text=FullPath(
 Inst)local IsSc=IsScriptClass(Inst)TabBtns['Source'].Btn.Visible=IsSc if
