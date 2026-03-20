@@ -64,127 +64,101 @@ RemoteEvent={'REM',Colors.Orange},RemoteFunction={'RFN',Colors.Orange},
 BindableEvent={'BEV',Colors.Orange},BindableFunction={'BFN',Colors.Orange},
 Camera={'CAM',Colors.Text2},StringValue={'STR',Colors.Text2},IntValue={'INT',
 Colors.Text2},BoolValue={'BOL',Colors.Text2},NumberValue={'NUM',Colors.Text2},
-ObjectValue={'OBJ',Colors.Text2},Sound={'SFX',Colors.Text2}}local PropDefs={
-__base={{'Name','string',true},{'ClassName','string',false},{'Archivable','bool'
-,true}},Part={{'Position','vector3',true},{'Size','vector3',true},{'Rotation',
-'vector3',true},{'Anchored','bool',true},{'CanCollide','bool',true},{
-'Transparency','number',true},{'Reflectance','number',true},{'CastShadow','bool'
-,true},{'Massless','bool',true},{'Color','color',false},{'Material','enum',false
-}},MeshPart={{'Position','vector3',true},{'Size','vector3',true},{'Anchored',
-'bool',true},{'CanCollide','bool',true},{'Transparency','number',true},{'Color',
-'color',false},{'Material','enum',false}},Humanoid={{'Health','number',true},{
-'MaxHealth','number',true},{'WalkSpeed','number',true},{'JumpHeight','number',
-true},{'JumpPower','number',true},{'HipHeight','number',true},{'AutoRotate',
-'bool',true},{'PlatformStand','bool',true},{'Sit','bool',false},{'RigType',
-'enum',false},{'DisplayDistanceType','enum',false}},Player={{'UserId','number',
-false},{'DisplayName','string',false},{'AccountAge','number',false},{
-'MembershipType','enum',false},{'TeamColor','brickcolor',false}},Camera={{
-'CameraType','enum',false},{'FieldOfView','number',true},{'NearPlaneZ','number',
-false},{'CFrame','cframe',false},{'Focus','cframe',false}},ScreenGui={{'Enabled'
-,'bool',true},{'DisplayOrder','number',true},{'ResetOnSpawn','bool',true},{
-'ZIndexBehavior','enum',false},{'IgnoreGuiInset','bool',true}},Frame={{
-'Position','udim2',false},{'Size','udim2',false},{'AnchorPoint','vector2',false}
-,{'BackgroundColor3','color',false},{'BackgroundTransparency','number',true},{
-'BorderSizePixel','number',true},{'Visible','bool',true},{'ZIndex','number',true
-},{'ClipsDescendants','bool',true}},TextLabel={{'Text','string',true},{
-'TextColor3','color',false},{'TextSize','number',true},{'Font','enum',false},{
-'TextWrapped','bool',true},{'Visible','bool',true},{'Position','udim2',false},{
-'Size','udim2',false},{'BackgroundTransparency','number',true}},TextButton={{
-'Text','string',true},{'TextSize','number',true},{'Visible','bool',true},{
-'Position','udim2',false},{'Size','udim2',false}},Script={{'Disabled','bool',
-true},{'RunContext','enum',false}},LocalScript={{'Disabled','bool',true}},
-Lighting={{'Brightness','number',true},{'ClockTime','number',true},{'FogEnd',
-'number',true},{'FogStart','number',true},{'GlobalShadows','bool',true},{
-'Ambient','color',false},{'OutdoorAmbient','color',false}},Workspace={{'Gravity'
-,'number',true},{'StreamingEnabled','bool',false},{'FallenPartsDestroyHeight',
-'number',true},{'AirDensity','number',true}},Players={{'MaxPlayers','number',
-false},{'CharacterAutoLoads','bool',true},{'RespawnTime','number',true}},Sound={
-{'SoundId','string',true},{'Volume','number',true},{'Pitch','number',true},{
-'Playing','bool',true},{'Looped','bool',true},{'IsLoaded','bool',false}},
-RemoteEvent={},RemoteFunction={},StringValue={{'Value','string',true}},IntValue=
-{{'Value','number',true}},NumberValue={{'Value','number',true}},BoolValue={{
-'Value','bool',true}}}local Methods={__base={{'GetFullName','string'},{
-'GetDebugId','string'},{'GetChildren','Instance[]'},{'GetDescendants',
-'Instance[]'},{'FindFirstChild','Instance?'},{'FindFirstAncestor','Instance?'},{
-'WaitForChild','Instance'},{'Clone','Instance'},{'Destroy','void'},{'IsA','bool'
-},{'IsAncestorOf','bool'},{'IsDescendantOf','bool'},{'GetPropertyChangedSignal',
-'RBXScriptSignal'},{'GetAttributes','Dictionary'},{'SetAttribute','void'},{
-'GetAttribute','Variant'}},Part={{'GetMass','number'},{'GetNetworkOwner',
-'Player?'},{'SetNetworkOwner','void'},{'CanCollideWith','bool'},{
-'GetConnectedParts','Part[]'},{'ApplyImpulse','void'}},Humanoid={{'TakeDamage',
-'void'},{'MoveTo','void'},{'GetState','HumanoidStateType'},{'ChangeState','void'
-},{'UnequipTools','void'},{'EquipTool','void'}},Player={{'Kick','void'},{
-'GetMouse','Mouse'},{'GetRankInGroup','number'},{'IsInGroup','bool'},{
-'LoadCharacter','void'},{'HasAppearanceLoaded','bool'}},Sound={{'Play','void'},{
-'Stop','void'},{'Pause','void'}},RemoteEvent={{'FireServer','void'},{
-'FireAllClients','void'},{'FireClient','void'},{'OnClientEvent',
-'RBXScriptSignal'},{'OnServerEvent','RBXScriptSignal'}},RemoteFunction={{
-'InvokeServer','Variant'},{'InvokeClient','Variant'},{'OnClientInvoke',
-'function'},{'OnServerInvoke','function'}}}local ScriptClasses={Script=true,
-LocalScript=true,ModuleScript=true}local ClassFilters={{Label='ALL',Col=Colors.
-Text2,Classes=nil},{Label='Scripts',Col=Colors.Green,Classes={Script=true,
-LocalScript=true,ModuleScript=true}},{Label='Models',Col=Colors.Purple,Classes={
-Model=true}},{Label='Parts',Col=Colors.Blue,Classes={Part=true,MeshPart=true,
-WedgePart=true,UnionOperation=true,SpawnLocation=true}},{Label='GUIs',Col=Colors
-.Pink,Classes={ScreenGui=true,Frame=true,TextLabel=true,TextButton=true,TextBox=
-true,ImageLabel=true,ImageButton=true}},{Label='Remotes',Col=Colors.Orange,
-Classes={RemoteEvent=true,RemoteFunction=true,BindableEvent=true,
+ObjectValue={'OBJ',Colors.Text2},Sound={'SFX',Colors.Text2}}local Methods={
+__base={{'GetFullName','string'},{'GetDebugId','string'},{'GetChildren',
+'Instance[]'},{'GetDescendants','Instance[]'},{'FindFirstChild','Instance?'},{
+'FindFirstAncestor','Instance?'},{'WaitForChild','Instance'},{'Clone','Instance'
+},{'Destroy','void'},{'IsA','bool'},{'IsAncestorOf','bool'},{'IsDescendantOf',
+'bool'},{'GetPropertyChangedSignal','RBXScriptSignal'},{'GetAttributes',
+'Dictionary'},{'SetAttribute','void'},{'GetAttribute','Variant'}},Part={{
+'GetMass','number'},{'GetNetworkOwner','Player?'},{'SetNetworkOwner','void'},{
+'CanCollideWith','bool'},{'GetConnectedParts','Part[]'},{'ApplyImpulse','void'}}
+,Humanoid={{'TakeDamage','void'},{'MoveTo','void'},{'GetState',
+'HumanoidStateType'},{'ChangeState','void'},{'UnequipTools','void'},{'EquipTool'
+,'void'}},Player={{'Kick','void'},{'GetMouse','Mouse'},{'GetRankInGroup',
+'number'},{'IsInGroup','bool'},{'LoadCharacter','void'},{'HasAppearanceLoaded',
+'bool'}},Sound={{'Play','void'},{'Stop','void'},{'Pause','void'}},RemoteEvent={{
+'FireServer','void'},{'FireAllClients','void'},{'FireClient','void'},{
+'OnClientEvent','RBXScriptSignal'},{'OnServerEvent','RBXScriptSignal'}},
+RemoteFunction={{'InvokeServer','Variant'},{'InvokeClient','Variant'},{
+'OnClientInvoke','function'},{'OnServerInvoke','function'}}}local ScriptClasses=
+{Script=true,LocalScript=true,ModuleScript=true}local ClassFilters={{Label='ALL'
+,Col=Colors.Text2,Classes=nil},{Label='Scripts',Col=Colors.Green,Classes={Script
+=true,LocalScript=true,ModuleScript=true}},{Label='Models',Col=Colors.Purple,
+Classes={Model=true}},{Label='Parts',Col=Colors.Blue,Classes={Part=true,MeshPart
+=true,WedgePart=true,UnionOperation=true,SpawnLocation=true}},{Label='GUIs',Col=
+Colors.Pink,Classes={ScreenGui=true,Frame=true,TextLabel=true,TextButton=true,
+TextBox=true,ImageLabel=true,ImageButton=true}},{Label='Remotes',Col=Colors.
+Orange,Classes={RemoteEvent=true,RemoteFunction=true,BindableEvent=true,
 BindableFunction=true}},{Label='Folders',Col=Colors.Yellow,Classes={Folder=true,
 Configuration=true}},{Label='Values',Col=Colors.Text2,Classes={StringValue=true,
 IntValue=true,NumberValue=true,BoolValue=true,ObjectValue=true}}}local
-ActiveClassFilter=nil local SafeGet=function(Inst,Prop)assert(typeof(Inst)==
-'Instance','Inst must be Instance')assert(type(Prop)=='string',
-'Prop must be string')local Ok,Val=pcall(function()return(Inst)[Prop]end)return
-Ok and Val or nil end local ValStr=function(V)if V==nil then return'nil'end
-local T=typeof(V)if T=='boolean'then return SafeString(V)end if T=='number'then
-if V==math.floor(V)then return SafeString(math.floor(V))end return string.
-format('%.5g',V)end if T=='string'then return V end if T=='Vector3'then return
-string.format('%.3g, %.3g, %.3g',V.X,V.Y,V.Z)end if T=='Vector2'then return
-string.format('%.3g, %.3g',V.X,V.Y)end if T=='CFrame'then local P=V.Position
-return string.format('%.3g, %.3g, %.3g',P.X,P.Y,P.Z)end if T=='Color3'then
-return string.format('%d, %d, %d',math.floor(V.R*255),math.floor(V.G*255),math.
-floor(V.B*255))end if T=='BrickColor'then return V.Name end if T=='UDim2'then
-return string.format('{%.3g,%d},{%.3g,%d}',V.X.Scale,V.X.Offset,V.Y.Scale,V.Y.
-Offset)end if T=='UDim'then return string.format('%.3g, %d',V.Scale,V.Offset)end
-if T=='EnumItem'then return V.Name end if T=='Instance'then return V.ClassName..
-'('..V.Name..')'end return SafeString(V)end local ValColor=function(V)if V==nil
-then return Colors.Text3 end local T=typeof(V)if T=='boolean'then return V and
-Colors.Green or Colors.Accent2 end if T=='number'then return Colors.Blue end if
-T=='string'then return Colors.Yellow end if T=='Vector3'or T=='Vector2'then
-return Colors.Orange end if T=='CFrame'then return Colors.Purple end if T==
-'Color3'then return Colors.Pink end if T=='BrickColor'then return Colors.Pink
-end if T=='EnumItem'then return Colors.Teal end if T=='Instance'then return
-Colors.Blue end return Colors.Text2 end local ParseEdit=function(Raw,TypeHint)
-assert(type(Raw)=='string','Raw must be string')assert(type(TypeHint)=='string',
-'TypeHint must be string')if TypeHint=='string'then return Raw end if TypeHint==
-'number'then return tonumber(Raw)end if TypeHint=='bool'then local Lo=Raw:lower(
-)if Lo=='true'or Lo=='1'then return true end if Lo=='false'or Lo=='0'then return
-false end return nil end if TypeHint=='vector3'then local A,B,Cc=Raw:match(
+ActiveClassFilter=nil local HasGetProperties=type(getproperties)=='function'
+local HasGetHidden=type(gethiddenproperty)=='function'local HasSetHidden=type(
+sethiddenproperty)=='function'local GetAllProperties=function(Inst)assert(
+typeof(Inst)=='Instance','Inst must be Instance')local Props={}if
+HasGetProperties then local Ok,Raw=pcall(getproperties,Inst)if Ok and type(Raw)
+=='table'then for K,V in Raw do Props[K]=V end end if HasGetHidden then local
+Ok2,Hidden=pcall(gethiddenproperties,Inst)if Ok2 and type(Hidden)=='table'then
+for K,V in Hidden do Props[K]=V end end end end for _,Key in{'Name','ClassName',
+'Archivable'}do if Props[Key]==nil then local Ok,V=pcall(function()return(Inst)[
+Key]end)if Ok then Props[Key]=V end end end return Props end local ReadProp=
+function(Inst,Key)local Ok,Val=pcall(function()return(Inst)[Key]end)if Ok then
+return Val end if HasGetHidden then local Ok2,Val2=pcall(gethiddenproperty,Inst,
+Key)if Ok2 then return Val2 end end return nil end local WriteProp=function(Inst
+,Key,Value)local Ok=pcall(function()(Inst)[Key]=Value end)if not Ok and
+HasSetHidden then pcall(sethiddenproperty,Inst,Key,Value)end end local ValStr=
+function(V)if V==nil then return'nil'end local T=typeof(V)if T=='boolean'then
+return SafeString(V)end if T=='number'then if V==math.floor(V)then return
+tostring(math.floor(V))end return string.format('%.5g',V)end if T=='string'then
+return V end if T=='Vector3'then return string.format('%.3g, %.3g, %.3g',V.X,V.Y
+,V.Z)end if T=='Vector2'then return string.format('%.3g, %.3g',V.X,V.Y)end if T
+=='CFrame'then local P=V.Position return string.format('%.3g, %.3g, %.3g',P.X,P.
+Y,P.Z)end if T=='Color3'then return string.format('%d, %d, %d',math.floor(V.R*
+255),math.floor(V.G*255),math.floor(V.B*255))end if T=='BrickColor'then return V
+.Name end if T=='UDim2'then return string.format('{%.3g,%d},{%.3g,%d}',V.X.Scale
+,V.X.Offset,V.Y.Scale,V.Y.Offset)end if T=='UDim'then return string.format(
+'%.3g, %d',V.Scale,V.Offset)end if T=='EnumItem'then return V.Name end if T==
+'Instance'then return V.ClassName..'('..V.Name..')'end return SafeString(V)end
+local ValColor=function(V)if V==nil then return Colors.Text3 end local T=typeof(
+V)if T=='boolean'then return V and Colors.Green or Colors.Accent2 end if T==
+'number'then return Colors.Blue end if T=='string'then return Colors.Yellow end
+if T=='Vector3'or T=='Vector2'then return Colors.Orange end if T=='CFrame'then
+return Colors.Purple end if T=='Color3'then return Colors.Pink end if T==
+'BrickColor'then return Colors.Pink end if T=='EnumItem'then return Colors.Teal
+end if T=='Instance'then return Colors.Blue end return Colors.Text2 end local
+ParseEdit=function(Raw,V)assert(type(Raw)=='string','Raw must be string')local T
+=typeof(V)if T=='string'then return Raw end if T=='number'then return tonumber(
+Raw)end if T=='boolean'then local Lo=Raw:lower()if Lo=='true'or Lo=='1'then
+return true end if Lo=='false'or Lo=='0'then return false end return nil end if
+T=='Vector3'then local A,B,Cc=Raw:match(
 '([%d%.%-]+)[,%s]+([%d%.%-]+)[,%s]+([%d%.%-]+)')if A then return Vector3.new(
-tonumber(A),tonumber(B),tonumber(Cc))end end if TypeHint=='vector2'then local A,
-B=Raw:match('([%d%.%-]+)[,%s]+([%d%.%-]+)')if A then return Vector2.new(
-tonumber(A),tonumber(B))end end return nil end local GetClassTag=function(Inst)
-assert(typeof(Inst)=='Instance','Inst must be Instance')local Tag=ClassTags[Inst
-.ClassName]if Tag then return(Tag[1]),(Tag[2])end return Inst.ClassName:sub(1,3)
-:upper(),Colors.Text2 end local FullPath=function(Inst)assert(typeof(Inst)==
-'Instance','Inst must be Instance')local Parts={}local Cur=Inst while Cur and
-Cur~=game do table.insert(Parts,1,Cur.Name)Cur=Cur.Parent end table.insert(Parts
-,1,'game')return table.concat(Parts,'.')end local IsScriptClass=function(Inst)
-return ScriptClasses[Inst.ClassName]==true end local NewFrame=function(Props)
-local F=Instance.new('Frame')F.BorderSizePixel=0 F.BackgroundColor3=Colors.Bg
-for K,V in pairs(Props or{})do(F)[K]=V end return F end local NewLabel=function(
-Props)local L=Instance.new('TextLabel')L.BorderSizePixel=0 L.
-BackgroundTransparency=1 L.TextColor3=Colors.Text L.Font=FontMono L.TextSize=12
-L.TextXAlignment=Enum.TextXAlignment.Left L.TextYAlignment=Enum.TextYAlignment.
-Center L.TextTruncate=Enum.TextTruncate.AtEnd for K,V in pairs(Props or{})do(L)[
-K]=V end return L end local NewButton=function(Props)local B=Instance.new(
-'TextButton')B.BorderSizePixel=0 B.BackgroundColor3=Colors.Panel2 B.TextColor3=
-Colors.Text2 B.Font=FontMed B.TextSize=10 B.AutoButtonColor=false for K,V in
-pairs(Props or{})do(B)[K]=V end return B end local NewTextBox=function(Props)
-local T=Instance.new('TextBox')T.BorderSizePixel=0 T.BackgroundColor3=Colors.
-Panel3 T.TextColor3=Colors.Text T.Font=FontMono T.TextSize=11 T.ClearTextOnFocus
-=false T.TextXAlignment=Enum.TextXAlignment.Left for K,V in pairs(Props or{})do(
-T)[K]=V end return T end local NewScroll=function(Props)local S=Instance.new(
+tonumber(A),tonumber(B),tonumber(Cc))end end if T=='Vector2'then local A,B=Raw:
+match('([%d%.%-]+)[,%s]+([%d%.%-]+)')if A then return Vector2.new(tonumber(A),
+tonumber(B))end end return nil end local IsEditable=function(V)local T=typeof(V)
+return T=='string'or T=='number'or T=='boolean'or T=='Vector3'or T=='Vector2'end
+local GetClassTag=function(Inst)assert(typeof(Inst)=='Instance',
+'Inst must be Instance')local Tag=ClassTags[Inst.ClassName]if Tag then return(
+Tag[1]),(Tag[2])end return Inst.ClassName:sub(1,3):upper(),Colors.Text2 end
+local FullPath=function(Inst)assert(typeof(Inst)=='Instance',
+'Inst must be Instance')local Parts={}local Cur=Inst while Cur and Cur~=game do
+table.insert(Parts,1,Cur.Name)Cur=Cur.Parent end table.insert(Parts,1,'game')
+return table.concat(Parts,'.')end local IsScriptClass=function(Inst)return
+ScriptClasses[Inst.ClassName]==true end local NewFrame=function(Props)local F=
+Instance.new('Frame')F.BorderSizePixel=0 F.BackgroundColor3=Colors.Bg for K,V in
+pairs(Props or{})do(F)[K]=V end return F end local NewLabel=function(Props)local
+L=Instance.new('TextLabel')L.BorderSizePixel=0 L.BackgroundTransparency=1 L.
+TextColor3=Colors.Text L.Font=FontMono L.TextSize=12 L.TextXAlignment=Enum.
+TextXAlignment.Left L.TextYAlignment=Enum.TextYAlignment.Center L.TextTruncate=
+Enum.TextTruncate.AtEnd for K,V in pairs(Props or{})do(L)[K]=V end return L end
+local NewButton=function(Props)local B=Instance.new('TextButton')B.
+BorderSizePixel=0 B.BackgroundColor3=Colors.Panel2 B.TextColor3=Colors.Text2 B.
+Font=FontMed B.TextSize=10 B.AutoButtonColor=false for K,V in pairs(Props or{})
+do(B)[K]=V end return B end local NewTextBox=function(Props)local T=Instance.
+new('TextBox')T.BorderSizePixel=0 T.BackgroundColor3=Colors.Panel3 T.TextColor3=
+Colors.Text T.Font=FontMono T.TextSize=11 T.ClearTextOnFocus=false T.
+TextXAlignment=Enum.TextXAlignment.Left for K,V in pairs(Props or{})do(T)[K]=V
+end return T end local NewScroll=function(Props)local S=Instance.new(
 'ScrollingFrame')S.BorderSizePixel=0 S.BackgroundTransparency=1 S.
 ScrollBarThickness=3 S.ScrollBarImageColor3=Colors.Muted S.CanvasSize=UDim2.new(
 0,0,0,0)for K,V in pairs(Props or{})do(S)[K]=V end return S end local AddCorner=
@@ -206,22 +180,21 @@ MakeDot=function(Col,X)local D=NewFrame({Size=UDim2.new(0,12,0,12),Position=
 UDim2.new(0,X,0.5,-6),BackgroundColor3=Col,Parent=TitleBar})AddCorner(6,D)return
 D end local DotRed=MakeDot(Colors.Accent,12)local DotYellow=MakeDot(Colors.
 Yellow,30)local DotGreen=MakeDot(Colors.Green,48)NewLabel({Text=
-'DEX Explorer by awakenkn',Size=UDim2.new(0,200,1,0),Position=UDim2.new(0,72,0,0
+'DEX Explorer by awakenkn',Size=UDim2.new(0,220,1,0),Position=UDim2.new(0,72,0,0
 ),TextColor3=Colors.Text2,Font=FontBold,TextSize=12,Parent=TitleBar})local
-SidebarW=240 local RightW=220 local BBarH=34 local Content=NewFrame({Size=UDim2.
-new(1,0,1,-(36+BBarH)),Position=UDim2.new(0,0,0,36),BackgroundTransparency=1,
-Parent=Window})local Sidebar=NewFrame({Size=UDim2.new(0,SidebarW,1,0),
-BackgroundColor3=Colors.Panel,Parent=Content})AddStroke(Colors.Border,1,Sidebar)
-local SideHdr=NewFrame({Size=UDim2.new(1,0,0,30),BackgroundColor3=Colors.Panel,
-Parent=Sidebar})local Sections={'GAME','NIL','RUNNING'}local ActiveSec='GAME'
-local SecBtns={}for I,Sec in ipairs(Sections)do local Sb=NewButton({Text=Sec,
-Size=UDim2.new(0,62,1,0),Position=UDim2.new(0,(I-1)*62,0,0),
-BackgroundTransparency=1,TextColor3=I==1 and Colors.Text or Colors.Text3,Font=
-FontBold,TextSize=9,Parent=SideHdr})local Ul=NewFrame({Size=UDim2.new(1,-8,0,2),
-Position=UDim2.new(0,4,1,-2),BackgroundColor3=Colors.Accent,
-BackgroundTransparency=I==1 and 0 or 1,Parent=Sb})SecBtns[Sec]={Btn=Sb,Line=Ul}
-end local NodeCountLbl=NewLabel({Text='0',Size=UDim2.new(0,40,1,0),Position=
-UDim2.new(1,-44,0,0),TextColor3=Colors.Accent2,TextXAlignment=Enum.
+SidebarW,RightW,BBarH=240,220,34 local Content=NewFrame({Size=UDim2.new(1,0,1,-(
+36+BBarH)),Position=UDim2.new(0,0,0,36),BackgroundTransparency=1,Parent=Window})
+local Sidebar=NewFrame({Size=UDim2.new(0,SidebarW,1,0),BackgroundColor3=Colors.
+Panel,Parent=Content})AddStroke(Colors.Border,1,Sidebar)local SideHdr=NewFrame({
+Size=UDim2.new(1,0,0,30),BackgroundColor3=Colors.Panel,Parent=Sidebar})local
+Sections={'GAME','NIL','RUNNING'}local ActiveSec='GAME'local SecBtns={}for I,Sec
+in ipairs(Sections)do local Sb=NewButton({Text=Sec,Size=UDim2.new(0,62,1,0),
+Position=UDim2.new(0,(I-1)*62,0,0),BackgroundTransparency=1,TextColor3=I==1 and
+Colors.Text or Colors.Text3,Font=FontBold,TextSize=9,Parent=SideHdr})local Ul=
+NewFrame({Size=UDim2.new(1,-8,0,2),Position=UDim2.new(0,4,1,-2),BackgroundColor3
+=Colors.Accent,BackgroundTransparency=I==1 and 0 or 1,Parent=Sb})SecBtns[Sec]={
+Btn=Sb,Line=Ul}end local NodeCountLbl=NewLabel({Text='0',Size=UDim2.new(0,40,1,0
+),Position=UDim2.new(1,-44,0,0),TextColor3=Colors.Accent2,TextXAlignment=Enum.
 TextXAlignment.Right,TextSize=10,Font=FontBold,Parent=SideHdr})HLine(Sidebar,30)
 local FilterStrip=NewScroll({Size=UDim2.new(1,0,0,26),Position=UDim2.new(0,0,0,
 31),ScrollingDirection=Enum.ScrollingDirection.X,ScrollBarThickness=0,Parent=
@@ -253,8 +226,8 @@ Colors.Text3,TextSize=10,TextXAlignment=Enum.TextXAlignment.Right,Parent=
 CenterHdr})local TabBar=NewFrame({Size=UDim2.new(1,0,0,28),Position=UDim2.new(0,
 0,0,52),BackgroundColor3=Colors.Panel,Parent=Center})AddStroke(Colors.Border,1,
 TabBar)local Tabs={'Properties','Children','Source'}local TabBtns={}local
-ActiveTab='Properties'for I,Name in ipairs(Tabs)do local Tb=NewButton({Text=Name
-:upper(),Size=UDim2.new(0,88,1,0),Position=UDim2.new(0,(I-1)*90,0,0),
+ActiveTab='Properties'for I,Name in Tabs do local Tb=NewButton({Text=Name:upper(
+),Size=UDim2.new(0,88,1,0),Position=UDim2.new(0,(I-1)*90,0,0),
 BackgroundTransparency=1,TextColor3=I==1 and Colors.Text or Colors.Text3,Font=
 FontBold,TextSize=9,Parent=TabBar})local Ul=NewFrame({Size=UDim2.new(1,-16,0,2),
 Position=UDim2.new(0,8,1,-2),BackgroundColor3=Colors.Accent,
@@ -301,7 +274,8 @@ new(0,8,0,20),TextColor3=RetColors[M[2] ]or Colors.Text3,TextSize=9,Parent=Item}
 )NewFrame({Size=UDim2.new(1,0,0,1),Position=UDim2.new(0,0,1,-1),BackgroundColor3
 =Colors.Border,BackgroundTransparency=0.6,Parent=Item})end MethodsScroll.
 CanvasSize=UDim2.new(0,0,0,#List*RowH+4)end local IdeLib=nil local IdeLoadErr=
-nil local GetIDE=function()local Ok2,Result=pcall(function()return loadstring(
+nil local GetIDE=function()if IdeLib then return IdeLib end if IdeLoadErr then
+return nil,IdeLoadErr end local Ok2,Result=pcall(function()return loadstring(
 game:HttpGet(
 [[https://raw.githubusercontent.com/Awakenchan/Dear-ReGui/refs/heads/main/lib/ide.lua]]
 ))()end)if Ok2 then IdeLib=Result return IdeLib end IdeLoadErr=SafeString(Result
@@ -388,31 +362,30 @@ Green)else SetEditorText('-- unavailable.\n-- Script: '..SafeName(Inst)..
 -- or [Bytecode] to save raw bytecode.]]
 )IdeStatus('Press Decompile',Colors.Text3)end end)end local RenderProps=function
 (Inst)assert(typeof(Inst)=='Instance','Inst must be Instance')ClearChildren(
-PropsScroll)local Defs={}for _,D in ipairs(PropDefs.__base)do table.insert(Defs,
-D)end if PropDefs[Inst.ClassName]then for _,D in ipairs(PropDefs[Inst.ClassName]
-)do table.insert(Defs,D)end end local HdrH,RowH,Y=22,28,0 local GroupHdr=
-function(Text)local R=NewFrame({Size=UDim2.new(1,0,0,HdrH),Position=UDim2.new(0,
-0,0,Y),BackgroundColor3=Colors.Panel2,Parent=PropsScroll})NewLabel({Text=Text,
-Size=UDim2.new(1,-10,1,0),Position=UDim2.new(0,10,0,0),TextColor3=Colors.Text3,
-Font=FontBold,TextSize=9,Parent=R})Y=Y+HdrH end local PropRow=function(PropName,
-TypeHint,Editable)local V=SafeGet(Inst,PropName)local DispStr=ValStr(V)local
-DispCol=ValColor(V)local IsCol3=typeof(V)=='Color3'local Row=NewFrame({Size=
-UDim2.new(1,0,0,RowH),Position=UDim2.new(0,0,0,Y),BackgroundTransparency=1,
+PropsScroll)local Props=GetAllProperties(Inst)local Keys={}for K in pairs(Props)
+do table.insert(Keys,K)end table.sort(Keys)local HdrH,RowH,Y=22,28,0 local
+GroupHdr=function(Text)local R=NewFrame({Size=UDim2.new(1,0,0,HdrH),Position=
+UDim2.new(0,0,0,Y),BackgroundColor3=Colors.Panel2,Parent=PropsScroll})NewLabel({
+Text=Text,Size=UDim2.new(1,-10,1,0),Position=UDim2.new(0,10,0,0),TextColor3=
+Colors.Text3,Font=FontBold,TextSize=9,Parent=R})Y=Y+HdrH end local PropRow=
+function(Key,Val)local DispStr=ValStr(Val)local DispCol=ValColor(Val)local
+IsCol3=typeof(Val)=='Color3'local Editable=IsEditable(Val)local Row=NewFrame({
+Size=UDim2.new(1,0,0,RowH),Position=UDim2.new(0,0,0,Y),BackgroundTransparency=1,
 Parent=PropsScroll})Row.MouseEnter:Connect(function()TweenService:Create(Row,
 TweenInfo.new(0.06),{BackgroundTransparency=0,BackgroundColor3=Colors.Panel2}):
 Play()end)Row.MouseLeave:Connect(function()TweenService:Create(Row,TweenInfo.
 new(0.06),{BackgroundTransparency=1}):Play()end)NewFrame({Size=UDim2.new(1,0,0,1
 ),Position=UDim2.new(0,0,1,-1),BackgroundColor3=Colors.Border,
-BackgroundTransparency=0.6,Parent=Row})NewLabel({Text=PropName,Size=UDim2.new(
-0.38,0,1,0),Position=UDim2.new(0,10,0,0),TextColor3=Colors.Text2,TextSize=11,
-Parent=Row})local SwOff=0 if IsCol3 then local Sw=NewFrame({Size=UDim2.new(0,12,
-0,12),Position=UDim2.new(0.38,2,0.5,-6),BackgroundColor3=V,Parent=Row})
-AddCorner(3,Sw)AddStroke(Colors.Border2,1,Sw)SwOff=18 end local ValLbl=NewLabel(
-{Text=DispStr,Size=UDim2.new(0.45,-SwOff-50,1,0),Position=UDim2.new(0.38,SwOff,0
-,0),TextColor3=DispCol,TextSize=11,TextTruncate=Enum.TextTruncate.AtEnd,Parent=
-Row})local CpBtn=NewButton({Text='\u{2398}',Size=UDim2.new(0,22,0,18),Position=
-UDim2.new(1,-50,0.5,-9),BackgroundColor3=Colors.Green2,TextColor3=Colors.White,
-Font=FontBold,TextSize=11,Parent=Row})AddCorner(3,CpBtn)CpBtn.MouseButton1Click:
+BackgroundTransparency=0.6,Parent=Row})NewLabel({Text=Key,Size=UDim2.new(0.38,0,
+1,0),Position=UDim2.new(0,10,0,0),TextColor3=Colors.Text2,TextSize=11,Parent=Row
+})local SwOff=0 if IsCol3 then local Sw=NewFrame({Size=UDim2.new(0,12,0,12),
+Position=UDim2.new(0.38,2,0.5,-6),BackgroundColor3=Val,Parent=Row})AddCorner(3,
+Sw)AddStroke(Colors.Border2,1,Sw)SwOff=18 end local ValLbl=NewLabel({Text=
+DispStr,Size=UDim2.new(0.45,-SwOff-50,1,0),Position=UDim2.new(0.38,SwOff,0,0),
+TextColor3=DispCol,TextSize=11,TextTruncate=Enum.TextTruncate.AtEnd,Parent=Row})
+local CpBtn=NewButton({Text='\u{2398}',Size=UDim2.new(0,22,0,18),Position=UDim2.
+new(1,-50,0.5,-9),BackgroundColor3=Colors.Green2,TextColor3=Colors.White,Font=
+FontBold,TextSize=11,Parent=Row})AddCorner(3,CpBtn)CpBtn.MouseButton1Click:
 Connect(function()pcall(function()setclipboard(DispStr)end)local Old=CpBtn.
 BackgroundColor3 CpBtn.BackgroundColor3=Colors.Green task.delay(0.6,function()
 CpBtn.BackgroundColor3=Old end)end)if Editable then local EditBtn=NewButton({
@@ -424,107 +397,108 @@ ValLbl.Visible=false EditBtn.Visible=false EditBox=NewTextBox({Text=DispStr,Size
 =UDim2.new(0.45,-SwOff-28,1,-6),Position=UDim2.new(0.38,SwOff,0,3),
 BackgroundColor3=Colors.Panel3,TextColor3=Colors.Text,TextSize=11,Parent=Row})
 AddCorner(3,EditBox);(EditBox):CaptureFocus()local CommitEdit=function()if not
-Editing then return end Editing=false local Raw=(EditBox).Text local Parsed=
-ParseEdit(Raw,TypeHint)if Parsed~=nil then SafeSet(Inst,PropName,Parsed)local
-NewVal=SafeGet(Inst,PropName)DispStr=ValStr(NewVal)ValLbl.Text=DispStr ValLbl.
-TextColor3=ValColor(NewVal)end(EditBox):Destroy()EditBox=nil ValLbl.Visible=true
-EditBtn.Visible=true end(EditBox).FocusLost:Connect(function(Enter)if Enter then
-CommitEdit()else Editing=false(EditBox):Destroy()EditBox=nil ValLbl.Visible=true
-EditBtn.Visible=true end end)end)end Y=Y+RowH end GroupHdr('ATTRIBUTES')for _,
-Def in ipairs(Defs)do PropRow((Def[1]),(Def[2]),(Def[3]))end local Attrs={}
-pcall(function()Attrs=Inst:GetAttributes()end)if next(Attrs)then GroupHdr(
-'CUSTOM ATTRIBUTES')for K,V in pairs(Attrs)do PropRow('['..K..']',typeof(V),true
-)end end PropsScroll.CanvasSize=UDim2.new(0,0,0,Y+8)end local RenderChildren=
-function(Inst)assert(typeof(Inst)=='Instance','Inst must be Instance')
-ClearChildren(PropsScroll)local Kids=Inst:GetChildren()if#Kids==0 then NewLabel(
-{Text='No children.',Size=UDim2.new(1,0,0,30),Position=UDim2.new(0,10,0,4),
-TextColor3=Colors.Text3,TextSize=11,Parent=PropsScroll})PropsScroll.CanvasSize=
-UDim2.new(0,0,0,34)return end local RowH=30 for I,Child in ipairs(Kids)do local
-Yy=(I-1)*RowH local Row=NewFrame({Size=UDim2.new(1,0,0,RowH),Position=UDim2.new(
-0,0,0,Yy),BackgroundTransparency=1,Parent=PropsScroll})Row.MouseEnter:Connect(
-function()TweenService:Create(Row,TweenInfo.new(0.06),{BackgroundTransparency=0,
+Editing then return end Editing=false local Raw=(EditBox).Text local CurVal=
+ReadProp(Inst,Key)local Parsed=ParseEdit(Raw,CurVal)if Parsed~=nil then
+WriteProp(Inst,Key,Parsed)local NewVal=ReadProp(Inst,Key)DispStr=ValStr(NewVal)
+ValLbl.Text=DispStr ValLbl.TextColor3=ValColor(NewVal)end(EditBox):Destroy()
+EditBox=nil ValLbl.Visible=true EditBtn.Visible=true end(EditBox).FocusLost:
+Connect(function(Enter)if Enter then CommitEdit()else Editing=false(EditBox):
+Destroy()EditBox=nil ValLbl.Visible=true EditBtn.Visible=true end end)end)end Y=
+Y+RowH end GroupHdr('PROPERTIES')for _,Key in ipairs(Keys)do PropRow(Key,Props[
+Key])end local Attrs={}pcall(function()Attrs=Inst:GetAttributes()end)if next(
+Attrs)then local AttrKeys={}for K in pairs(Attrs)do table.insert(AttrKeys,K)end
+table.sort(AttrKeys)GroupHdr('CUSTOM ATTRIBUTES')for _,K in ipairs(AttrKeys)do
+PropRow('['..K..']',Attrs[K])end end PropsScroll.CanvasSize=UDim2.new(0,0,0,Y+8)
+end local RenderChildren=function(Inst)local holder=cloneref(Inst)assert(typeof(
+holder)=='Instance','Inst must be Instance')ClearChildren(PropsScroll)local Kids
+=holder:GetChildren()if#Kids==0 then NewLabel({Text='No children.',Size=UDim2.
+new(1,0,0,30),Position=UDim2.new(0,10,0,4),TextColor3=Colors.Text3,TextSize=11,
+Parent=PropsScroll})PropsScroll.CanvasSize=UDim2.new(0,0,0,34)return end local
+RowH=30 for I,Child in Kids do local Ci=clonerf(Child)local Yy=(I-1)*RowH local
+Row=NewFrame({Size=UDim2.new(1,0,0,RowH),Position=UDim2.new(0,0,0,Yy),
+BackgroundTransparency=1,Parent=PropsScroll})Row.MouseEnter:Connect(function()
+TweenService:Create(Row,TweenInfo.new(0.06),{BackgroundTransparency=0,
 BackgroundColor3=Colors.Panel2}):Play()end)Row.MouseLeave:Connect(function()
 TweenService:Create(Row,TweenInfo.new(0.06),{BackgroundTransparency=1}):Play()
-end)local Tag,TagCol=GetClassTag(Child)local Tl=NewLabel({Text=Tag,Size=UDim2.
-new(0,34,0,16),Position=UDim2.new(0,8,0.5,-8),BackgroundColor3=Color3.new(TagCol
-.R*0.2,TagCol.G*0.2,TagCol.B*0.2),BackgroundTransparency=0,TextColor3=TagCol,
-Font=FontBold,TextSize=8,TextXAlignment=Enum.TextXAlignment.Center,Parent=Row})
-AddCorner(2,Tl)NewLabel({Text=Child.Name,Size=UDim2.new(0.55,-48,1,0),Position=
+end)local Tag,TagCol=GetClassTag(Ci)local Tl=NewLabel({Text=Tag,Size=UDim2.new(0
+,34,0,16),Position=UDim2.new(0,8,0.5,-8),BackgroundColor3=Color3.new(TagCol.R*
+0.2,TagCol.G*0.2,TagCol.B*0.2),BackgroundTransparency=0,TextColor3=TagCol,Font=
+FontBold,TextSize=8,TextXAlignment=Enum.TextXAlignment.Center,Parent=Row})
+AddCorner(2,Tl)NewLabel({Text=Ci.Name,Size=UDim2.new(0.55,-48,1,0),Position=
 UDim2.new(0,48,0,0),TextColor3=Colors.Text,TextSize=11,Parent=Row})NewLabel({
-Text=Child.ClassName,Size=UDim2.new(0.45,-10,1,0),Position=UDim2.new(0.55,0,0,0)
-,TextColor3=Colors.Text3,TextXAlignment=Enum.TextXAlignment.Right,TextSize=10,
+Text=Ci.ClassName,Size=UDim2.new(0.45,-10,1,0),Position=UDim2.new(0.55,0,0,0),
+TextColor3=Colors.Text3,TextXAlignment=Enum.TextXAlignment.Right,TextSize=10,
 Parent=Row})NewFrame({Size=UDim2.new(1,0,0,1),Position=UDim2.new(0,0,1,-1),
-BackgroundColor3=Colors.Border,BackgroundTransparency=0.6,Parent=Row})local Ci=
-Child Row.InputBegan:Connect(function(Inp)if Inp.UserInputType~=Enum.
-UserInputType.MouseButton1 then return end SelectInstance(Ci)end)end PropsScroll
-.CanvasSize=UDim2.new(0,0,0,#Kids*RowH+4)end function SelectInstance(Inst)
-assert(typeof(Inst)=='Instance','Inst must be Instance')if SelInst and
-TreeRowRefs[SelInst]then local Ref=TreeRowRefs[SelInst]if Ref.Row and Ref.Row.
-Parent then Ref.Row.BackgroundTransparency=1 Ref.Accent.BackgroundTransparency=1
-end end SelInst=Inst SelName.Text=Inst.Name SelClass.Text=Inst.ClassName SelPath
-.Text=FullPath(Inst)local IsSc=IsScriptClass(Inst)TabBtns['Source'].Btn.Visible=
-IsSc if ActiveTab=='Source'and not IsSc then ActiveTab='Properties'end for
-TabName,Ref in pairs(TabBtns)do local Active=TabName==ActiveTab Ref.Btn.
-TextColor3=Active and Colors.Text or Colors.Text3 Ref.Line.
-BackgroundTransparency=Active and 0 or 1 end if ActiveTab=='Properties'then
-RenderProps(Inst)elseif ActiveTab=='Children'then RenderChildren(Inst)elseif
-ActiveTab=='Source'then RenderSource(Inst)end RenderMethods(Inst)end local
-TreeRowH=24 local BuildTreeRow=function(Inst,Depth,YPos,Scroll)assert(typeof(
-Inst)=='Instance','Inst must be Instance')local Tag,TagCol=GetClassTag(Inst)
-local IsSel=SelInst==Inst local Row=NewFrame({Size=UDim2.new(1,0,0,TreeRowH),
-Position=UDim2.new(0,0,0,YPos),BackgroundColor3=IsSel and Color3.new(Colors.
-Accent.R*0.12,Colors.Accent.G*0.12,Colors.Accent.B*0.12)or Colors.Bg,
-BackgroundTransparency=IsSel and 0 or 1,Parent=Scroll})Row.MouseEnter:Connect(
-function()if SelInst~=Inst then TweenService:Create(Row,TweenInfo.new(0.05),{
-BackgroundTransparency=0,BackgroundColor3=Colors.Panel2}):Play()end end)Row.
-MouseLeave:Connect(function()if SelInst~=Inst then TweenService:Create(Row,
-TweenInfo.new(0.05),{BackgroundTransparency=1}):Play()end end)local Accent=
-NewFrame({Size=UDim2.new(0,2,1,0),BackgroundColor3=Colors.Accent,
-BackgroundTransparency=IsSel and 0 or 1,Parent=Row})TreeRowRefs[Inst]={Row=Row,
-Accent=Accent}local IndX=Depth*13+4 local Kids=Inst:GetChildren()local HasKids=#
-Kids>0 local ArrowLbl=NewLabel({Text=HasKids and(ExpandedSet[Inst]and'\u{25be}'
-or'\u{25b8}')or'',Size=UDim2.new(0,14,1,0),Position=UDim2.new(0,IndX,0,0),
-TextColor3=Colors.Text3,TextSize=11,TextXAlignment=Enum.TextXAlignment.Center,
-Parent=Row})local Tl=NewLabel({Text=Tag,Size=UDim2.new(0,32,0,15),Position=UDim2
-.new(0,IndX+15,0.5,-7),BackgroundColor3=Color3.new(TagCol.R*0.2,TagCol.G*0.2,
-TagCol.B*0.2),BackgroundTransparency=0,TextColor3=TagCol,Font=FontBold,TextSize=
-8,TextXAlignment=Enum.TextXAlignment.Center,Parent=Row})AddCorner(2,Tl)NewLabel(
-{Text=Inst.Name,Size=UDim2.new(1,-(IndX+54),1,0),Position=UDim2.new(0,IndX+52,0,
-0),TextColor3=IsSel and Colors.Text or Colors.Text2,TextSize=11,Parent=Row})Row.
+BackgroundColor3=Colors.Border,BackgroundTransparency=0.6,Parent=Row})Row.
 InputBegan:Connect(function(Inp)if Inp.UserInputType~=Enum.UserInputType.
-MouseButton1 then return end if HasKids then ExpandedSet[Inst]=not ExpandedSet[
-Inst]end SelectInstance(Inst)Row.BackgroundColor3=Color3.new(Colors.Accent.R*
-0.12,Colors.Accent.G*0.12,Colors.Accent.B*0.12)Row.BackgroundTransparency=0
-Accent.BackgroundTransparency=0 ArrowLbl.Text=HasKids and(ExpandedSet[Inst]and
-'\u{25be}'or'\u{25b8}')or''RebuildTree()end)end local function WalkTree(Inst,
-Depth,YAcc,Filter,Scroll)local Lf=Filter:lower()local NameMatch=Lf==''or Inst.
-Name:lower():find(Lf,1,true)if NameMatch then BuildTreeRow(Inst,Depth,YAcc,
-Scroll)YAcc=YAcc+TreeRowH end local ChildDepth=NameMatch and Depth+1 or Depth if
-ExpandedSet[Inst]or Lf~=''then for _,Child in ipairs(Inst:GetChildren())do YAcc=
-WalkTree(Child,ChildDepth,YAcc,Filter,Scroll)end end return YAcc end local
-FlatCollect=function(Root,ClsFilter,NameFilter,Out)assert(typeof(Root)==
-'Instance','Root must be Instance')local Lf=NameFilter:lower()local Stack={Root}
-while#Stack>0 do local Inst=(table.remove(Stack))local Ok2,Kids=pcall(function()
-return Inst:GetChildren()end)if Ok2 then for I=#Kids,1,-1 do table.insert(Stack,
-Kids[I])end end local ClsPass=ClsFilter==nil or ClsFilter[Inst.ClassName]==true
-local NamePass=Lf==''or Inst.Name:lower():find(Lf,1,true)if ClsPass and NamePass
-then table.insert(Out,Inst)end end end local RebuildPending=false function
-RebuildTree()if RebuildPending then return end RebuildPending=true task.defer(
-function()RebuildPending=false ClearChildren(TreeScroll)TreeRowRefs={}local Y=0
-if ActiveSec=='GAME'then if ActiveClassFilter~=nil or SearchFilter~=''then local
-Matches={}for _,Child in ipairs(game:GetChildren())do FlatCollect(Child,
-ActiveClassFilter,SearchFilter,Matches)end NodeCountLbl.Text=SafeString(#Matches
-)local Chunk=40 local function DoChunk(I)if I>#Matches then TreeScroll.
-CanvasSize=UDim2.new(0,0,0,Y+4)return end local Limit=math.min(I+Chunk-1,#
-Matches)for J=I,Limit do BuildTreeRow(Matches[J],0,Y,TreeScroll)Y=Y+TreeRowH end
-TreeScroll.CanvasSize=UDim2.new(0,0,0,Y+4)if Limit<#Matches then task.defer(
-function()DoChunk(Limit+1)end)end end DoChunk(1)return else local Total=0
-local function Cnt(I)Total=Total+1 for _,C in ipairs(I:GetChildren())do Cnt(C)
-end end for _,Child in ipairs(game:GetChildren())do Cnt(Child)end NodeCountLbl.
-Text=SafeString(Total)for _,Child in ipairs(game:GetChildren())do Y=WalkTree(
-Child,0,Y,SearchFilter,TreeScroll)end end elseif ActiveSec=='NIL'then local
-NilInsts={}pcall(function()NilInsts=getnilinstances()end)NodeCountLbl.Text=
-SafeString(#NilInsts)if#NilInsts==0 then NewLabel({Text=
+MouseButton1 then return end SelectInstance(Ci)end)end PropsScroll.CanvasSize=
+UDim2.new(0,0,0,#Kids*RowH+4)end function SelectInstance(Inst)assert(typeof(Inst
+)=='Instance','Inst must be Instance')if SelInst and TreeRowRefs[SelInst]then
+local Ref=TreeRowRefs[SelInst]if Ref.Row and Ref.Row.Parent then Ref.Row.
+BackgroundTransparency=1 Ref.Accent.BackgroundTransparency=1 end end SelInst=
+Inst SelName.Text=Inst.Name SelClass.Text=Inst.ClassName SelPath.Text=FullPath(
+Inst)local IsSc=IsScriptClass(Inst)TabBtns['Source'].Btn.Visible=IsSc if
+ActiveTab=='Source'and not IsSc then ActiveTab='Properties'end for TabName,Ref
+in pairs(TabBtns)do local Active=TabName==ActiveTab Ref.Btn.TextColor3=Active
+and Colors.Text or Colors.Text3 Ref.Line.BackgroundTransparency=Active and 0 or
+1 end if ActiveTab=='Properties'then RenderProps(Inst)elseif ActiveTab==
+'Children'then RenderChildren(Inst)elseif ActiveTab=='Source'then RenderSource(
+Inst)end RenderMethods(Inst)end local TreeRowH=24 local BuildTreeRow=function(
+Inst,Depth,YPos,Scroll)assert(typeof(Inst)=='Instance','Inst must be Instance')
+local Tag,TagCol=GetClassTag(Inst)local IsSel=SelInst==Inst local Row=NewFrame({
+Size=UDim2.new(1,0,0,TreeRowH),Position=UDim2.new(0,0,0,YPos),BackgroundColor3=
+IsSel and Color3.new(Colors.Accent.R*0.12,Colors.Accent.G*0.12,Colors.Accent.B*
+0.12)or Colors.Bg,BackgroundTransparency=IsSel and 0 or 1,Parent=Scroll})Row.
+MouseEnter:Connect(function()if SelInst~=Inst then TweenService:Create(Row,
+TweenInfo.new(0.05),{BackgroundTransparency=0,BackgroundColor3=Colors.Panel2}):
+Play()end end)Row.MouseLeave:Connect(function()if SelInst~=Inst then
+TweenService:Create(Row,TweenInfo.new(0.05),{BackgroundTransparency=1}):Play()
+end end)local Accent=NewFrame({Size=UDim2.new(0,2,1,0),BackgroundColor3=Colors.
+Accent,BackgroundTransparency=IsSel and 0 or 1,Parent=Row})TreeRowRefs[Inst]={
+Row=Row,Accent=Accent}local IndX=Depth*13+4 local Kids=Inst:GetChildren()local
+HasKids=#Kids>0 local ArrowLbl=NewLabel({Text=HasKids and(ExpandedSet[Inst]and
+'\u{25be}'or'\u{25b8}')or'',Size=UDim2.new(0,14,1,0),Position=UDim2.new(0,IndX,0
+,0),TextColor3=Colors.Text3,TextSize=11,TextXAlignment=Enum.TextXAlignment.
+Center,Parent=Row})local Tl=NewLabel({Text=Tag,Size=UDim2.new(0,32,0,15),
+Position=UDim2.new(0,IndX+15,0.5,-7),BackgroundColor3=Color3.new(TagCol.R*0.2,
+TagCol.G*0.2,TagCol.B*0.2),BackgroundTransparency=0,TextColor3=TagCol,Font=
+FontBold,TextSize=8,TextXAlignment=Enum.TextXAlignment.Center,Parent=Row})
+AddCorner(2,Tl)NewLabel({Text=Inst.Name,Size=UDim2.new(1,-(IndX+54),1,0),
+Position=UDim2.new(0,IndX+52,0,0),TextColor3=IsSel and Colors.Text or Colors.
+Text2,TextSize=11,Parent=Row})Row.InputBegan:Connect(function(Inp)if Inp.
+UserInputType~=Enum.UserInputType.MouseButton1 then return end if HasKids then
+ExpandedSet[Inst]=not ExpandedSet[Inst]end SelectInstance(Inst)Row.
+BackgroundColor3=Color3.new(Colors.Accent.R*0.12,Colors.Accent.G*0.12,Colors.
+Accent.B*0.12)Row.BackgroundTransparency=0 Accent.BackgroundTransparency=0
+ArrowLbl.Text=HasKids and(ExpandedSet[Inst]and'\u{25be}'or'\u{25b8}')or''
+RebuildTree()end)end local function WalkTree(Inst,Depth,YAcc,Filter,Scroll)local
+Lf=Filter:lower()local NameMatch=Lf==''or Inst.Name:lower():find(Lf,1,true)if
+NameMatch then BuildTreeRow(Inst,Depth,YAcc,Scroll)YAcc=YAcc+TreeRowH end local
+ChildDepth=NameMatch and Depth+1 or Depth if ExpandedSet[Inst]or Lf~=''then for
+_,Child in ipairs(Inst:GetChildren())do YAcc=WalkTree(Child,ChildDepth,YAcc,
+Filter,Scroll)end end return YAcc end local FlatCollect=function(Root,ClsFilter,
+NameFilter,Out)assert(typeof(Root)=='Instance','Root must be Instance')local Lf=
+NameFilter:lower()local Stack={Root}while#Stack>0 do local Inst=(table.remove(
+Stack))local Ok2,Kids=pcall(function()return Inst:GetChildren()end)if Ok2 then
+for I=#Kids,1,-1 do table.insert(Stack,Kids[I])end end local ClsPass=ClsFilter==
+nil or ClsFilter[Inst.ClassName]==true local NamePass=Lf==''or Inst.Name:lower()
+:find(Lf,1,true)if ClsPass and NamePass then table.insert(Out,Inst)end end end
+local RebuildPending=false function RebuildTree()if RebuildPending then return
+end RebuildPending=true task.defer(function()RebuildPending=false ClearChildren(
+TreeScroll)TreeRowRefs={}local Y=0 if ActiveSec=='GAME'then if ActiveClassFilter
+~=nil or SearchFilter~=''then local Matches={}for _,Child in ipairs(game:
+GetChildren())do FlatCollect(Child,ActiveClassFilter,SearchFilter,Matches)end
+NodeCountLbl.Text=SafeString(#Matches)local Chunk=40 local function DoChunk(I)if
+I>#Matches then TreeScroll.CanvasSize=UDim2.new(0,0,0,Y+4)return end local Limit
+=math.min(I+Chunk-1,#Matches)for J=I,Limit do BuildTreeRow(Matches[J],0,Y,
+TreeScroll)Y=Y+TreeRowH end TreeScroll.CanvasSize=UDim2.new(0,0,0,Y+4)if Limit<#
+Matches then task.defer(function()DoChunk(Limit+1)end)end end DoChunk(1)return
+else local Total=0 local function Cnt(I)Total=Total+1 for _,C in ipairs(I:
+GetChildren())do Cnt(C)end end for _,Child in ipairs(game:GetChildren())do Cnt(
+Child)end NodeCountLbl.Text=SafeString(Total)for _,Child in ipairs(game:
+GetChildren())do Y=WalkTree(Child,0,Y,SearchFilter,TreeScroll)end end elseif
+ActiveSec=='NIL'then local NilInsts={}pcall(function()NilInsts=getnilinstances()
+end)NodeCountLbl.Text=SafeString(#NilInsts)if#NilInsts==0 then NewLabel({Text=
 'getnilinstances() returned 0 results.',Size=UDim2.new(1,0,0,30),Position=UDim2.
 new(0,10,0,4),TextColor3=Colors.Text3,TextSize=10,Parent=TreeScroll})Y=34 else
 local Lf=SearchFilter:lower()for _,Inst in ipairs(NilInsts)do local ClsPass=
