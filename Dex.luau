@@ -414,7 +414,7 @@ holder)=='Instance','Inst must be Instance')ClearChildren(PropsScroll)local Kids
 =holder:GetChildren()if#Kids==0 then NewLabel({Text='No children.',Size=UDim2.
 new(1,0,0,30),Position=UDim2.new(0,10,0,4),TextColor3=Colors.Text3,TextSize=11,
 Parent=PropsScroll})PropsScroll.CanvasSize=UDim2.new(0,0,0,34)return end local
-RowH=30 for I,Child in Kids do local Ci=clonerf(Child)local Yy=(I-1)*RowH local
+RowH=30 for I,Child in Kids do local Ci=cloneref(Child)local Yy=(I-1)*RowH local
 Row=NewFrame({Size=UDim2.new(1,0,0,RowH),Position=UDim2.new(0,0,0,Yy),
 BackgroundTransparency=1,Parent=PropsScroll})Row.MouseEnter:Connect(function()
 TweenService:Create(Row,TweenInfo.new(0.06),{BackgroundTransparency=0,
