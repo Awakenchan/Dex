@@ -280,8 +280,7 @@ new(0,8,0,20),TextColor3=RetColors[M[2] ]or Colors.Text3,TextSize=9,Parent=Item}
 )NewFrame({Size=UDim2.new(1,0,0,1),Position=UDim2.new(0,0,1,-1),BackgroundColor3
 =Colors.Border,BackgroundTransparency=0.6,Parent=Item})end MethodsScroll.
 CanvasSize=UDim2.new(0,0,0,#List*RowH+4)end local IdeLib=nil local IdeLoadErr=
-nil local GetIDE=function()if IdeLib then return IdeLib end if IdeLoadErr then
-return nil,IdeLoadErr end local Ok2,Result=pcall(function()return loadstring(
+nil local GetIDE=function()local Ok2,Result=pcall(function()return loadstring(
 game:HttpGet(
 [[https://raw.githubusercontent.com/Awakenchan/Dear-ReGui/refs/heads/main/lib/ide.lua]]
 ))()end)if Ok2 then IdeLib=Result return IdeLib end IdeLoadErr=SafeString(Result
