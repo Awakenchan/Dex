@@ -47,26 +47,25 @@ fromRGB(226,226,232),Text2=Color3.fromRGB(136,136,160),Text3=Color3.fromRGB(85,
 85,104),Muted=Color3.fromRGB(58,58,72),White=Color3.fromRGB(255,255,255)}local
 FontBold=Enum.Font.GothamBold local FontMed=Enum.Font.Gotham local FontMono=Enum
 .Font.Code local ClassTags={Workspace={'WS',Colors.Accent2},Players={'PLY',
-Colors.Accent2},ReplicatedStorage={'RS',Colors.Accent2},ServerScriptService={
-'SSS',Colors.Accent2},StarterGui={'SGI',Colors.Accent2},Lighting={'LIT',Colors.
-Accent2},SoundService={'SND',Colors.Accent2},RunService={'RUN',Colors.Accent2},
-CoreGui={'CG',Colors.Accent2},StarterPack={'SPK',Colors.Accent2},Teams={'TMS',
-Colors.Accent2},Chat={'CHT',Colors.Accent2},ReplicatedFirst={'RF',Colors.Accent2
-},Script={'SCR',Colors.Green},LocalScript={'LSC',Colors.Green},ModuleScript={
-'MOD',Colors.Green},Part={'PRT',Colors.Blue},MeshPart={'MSH',Colors.Blue},
-UnionOperation={'UNI',Colors.Blue},WedgePart={'WDG',Colors.Blue},SpawnLocation={
-'SPW',Colors.Blue},Model={'MDL',Colors.Purple},Humanoid={'HMN',Colors.Purple},
-Animation={'ANI',Colors.Purple},ScreenGui={'SGU',Colors.Pink},Frame={'FRM',
-Colors.Pink},TextLabel={'TXT',Colors.Pink},TextButton={'BTN',Colors.Pink},
-TextBox={'INP',Colors.Pink},ImageLabel={'IMG',Colors.Pink},ImageButton={'IBT',
-Colors.Pink},Folder={'FLD',Colors.Yellow},Configuration={'CFG',Colors.Yellow},
-RemoteEvent={'REM',Colors.Orange},RemoteFunction={'RFN',Colors.Orange},
-BindableEvent={'BEV',Colors.Orange},BindableFunction={'BFN',Colors.Orange},
-Camera={'CAM',Colors.Text2},StringValue={'STR',Colors.Text2},IntValue={'INT',
-Colors.Text2},BoolValue={'BOL',Colors.Text2},NumberValue={'NUM',Colors.Text2},
-ObjectValue={'OBJ',Colors.Text2},Sound={'SFX',Colors.Text2}}local Methods={
-__base={{'GetFullName','string'},{'GetDebugId','string'},{'GetChildren',
-'Instance[]'},{'GetDescendants','Instance[]'},{'FindFirstChild','Instance?'},{
+Colors.Accent2},ReplicatedStorage={'RS',Colors.Accent2},StarterGui={'SGI',Colors
+.Accent2},Lighting={'LIT',Colors.Accent2},SoundService={'SND',Colors.Accent2},
+RunService={'RUN',Colors.Accent2},CoreGui={'CG',Colors.Accent2},StarterPack={
+'SPK',Colors.Accent2},Teams={'TMS',Colors.Accent2},Chat={'CHT',Colors.Accent2},
+ReplicatedFirst={'RF',Colors.Accent2},Script={'SCR',Colors.Green},LocalScript={
+'LSC',Colors.Green},ModuleScript={'MOD',Colors.Green},Part={'PRT',Colors.Blue},
+MeshPart={'MSH',Colors.Blue},UnionOperation={'UNI',Colors.Blue},WedgePart={'WDG'
+,Colors.Blue},SpawnLocation={'SPW',Colors.Blue},Model={'MDL',Colors.Purple},
+Humanoid={'HMN',Colors.Purple},Animation={'ANI',Colors.Purple},ScreenGui={'SGU',
+Colors.Pink},Frame={'FRM',Colors.Pink},TextLabel={'TXT',Colors.Pink},TextButton=
+{'BTN',Colors.Pink},TextBox={'INP',Colors.Pink},ImageLabel={'IMG',Colors.Pink},
+ImageButton={'IBT',Colors.Pink},Folder={'FLD',Colors.Yellow},Configuration={
+'CFG',Colors.Yellow},RemoteEvent={'REM',Colors.Orange},RemoteFunction={'RFN',
+Colors.Orange},BindableEvent={'BEV',Colors.Orange},BindableFunction={'BFN',
+Colors.Orange},Camera={'CAM',Colors.Text2},StringValue={'STR',Colors.Text2},
+IntValue={'INT',Colors.Text2},BoolValue={'BOL',Colors.Text2},NumberValue={'NUM',
+Colors.Text2},ObjectValue={'OBJ',Colors.Text2},Sound={'SFX',Colors.Text2}}local
+Methods={__base={{'GetFullName','string'},{'GetDebugId','string'},{'GetChildren'
+,'Instance[]'},{'GetDescendants','Instance[]'},{'FindFirstChild','Instance?'},{
 'FindFirstAncestor','Instance?'},{'WaitForChild','Instance'},{'Clone','Instance'
 },{'Destroy','void'},{'IsA','bool'},{'IsAncestorOf','bool'},{'IsDescendantOf',
 'bool'},{'GetPropertyChangedSignal','RBXScriptSignal'},{'GetAttributes',
@@ -577,6 +576,5 @@ Window.Position=UDim2.new(WStart.X.Scale,WStart.X.Offset+D.X,WStart.Y.Scale,
 WStart.Y.Offset+D.Y)end end)UserInputService.InputEnded:Connect(function(Inp)if
 Inp.UserInputType==Enum.UserInputType.MouseButton1 then Dragging=false end end)
 end local AutoExpand={Workspace=true,Players=true,ReplicatedStorage=true,
-Lighting=true,StarterGui=true,ServerScriptService=true}for _,Child in ipairs(
-game:GetChildren())do if AutoExpand[Child.ClassName]then ExpandedSet[Child]=true
-end end RebuildTree()
+Lighting=true,StarterGui=true}for _,Child in ipairs(game:GetChildren())do if
+AutoExpand[Child.ClassName]then ExpandedSet[Child]=true end end RebuildTree()
