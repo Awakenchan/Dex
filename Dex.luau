@@ -109,7 +109,7 @@ WriteProp=function(Inst,Key,Value)local Ok=pcall(function()(Inst)[Key]=Value end
 )if not Ok and HasSetHidden then pcall(sethiddenproperty,Inst,Key,Value)end end
 local ValStr=function(V)if V==nil then return'nil'end local T=typeof(V)if T==
 'boolean'then return SafeString(V)end if T=='number'then if V==math.floor(V)then
-return tostring(math.floor(V))end return string.format('%.5g',V)end if T==
+return SafeString(math.floor(V))end return string.format('%.5g',V)end if T==
 'string'then return V end if T=='Vector3'then return string.format(
 '%.3g, %.3g, %.3g',V.X,V.Y,V.Z)end if T=='Vector2'then return string.format(
 '%.3g, %.3g',V.X,V.Y)end if T=='CFrame'then local P=V.Position return string.
@@ -146,56 +146,55 @@ return table.concat(Parts,'.')end local IsScriptClass=function(Inst)return
 ScriptClasses[Inst.ClassName]==true end local GetTopService=function(Inst)local
 Cur=Inst while Cur do if Cur.Parent==game then return Cur end Cur=Cur.Parent end
 return nil end local NewFrame=function(Props)local F=Instance.new('Frame')F.
-BorderSizePixel=0 F.BackgroundColor3=Colors.Bg for K,V in pairs(Props or{})do(F)
-[K]=V end return F end local NewLabel=function(Props)local L=Instance.new(
-'TextLabel')L.BorderSizePixel=0 L.BackgroundTransparency=1 L.TextColor3=Colors.
-Text L.Font=FontMono L.TextSize=12 L.TextXAlignment=Enum.TextXAlignment.Left L.
+BorderSizePixel=0 F.BackgroundColor3=Colors.Bg for K,V in Props or{}do(F)[K]=V
+end return F end local NewLabel=function(Props)local L=Instance.new('TextLabel')
+L.BorderSizePixel=0 L.BackgroundTransparency=1 L.TextColor3=Colors.Text L.Font=
+FontMono L.TextSize=12 L.TextXAlignment=Enum.TextXAlignment.Left L.
 TextYAlignment=Enum.TextYAlignment.Center L.TextTruncate=Enum.TextTruncate.AtEnd
-for K,V in pairs(Props or{})do(L)[K]=V end return L end local NewButton=function
-(Props)local B=Instance.new('TextButton')B.BorderSizePixel=0 B.BackgroundColor3=
-Colors.Panel2 B.TextColor3=Colors.Text2 B.Font=FontMed B.TextSize=10 B.
-AutoButtonColor=false for K,V in pairs(Props or{})do(B)[K]=V end return B end
-local NewTextBox=function(Props)local T=Instance.new('TextBox')T.BorderSizePixel
-=0 T.BackgroundColor3=Colors.Panel3 T.TextColor3=Colors.Text T.Font=FontMono T.
-TextSize=11 T.ClearTextOnFocus=false T.TextXAlignment=Enum.TextXAlignment.Left
-for K,V in pairs(Props or{})do(T)[K]=V end return T end local NewScroll=function
-(Props)local S=Instance.new('ScrollingFrame')S.BorderSizePixel=0 S.
-BackgroundTransparency=1 S.ScrollBarThickness=3 S.ScrollBarImageColor3=Colors.
-Muted S.CanvasSize=UDim2.new(0,0,0,0)for K,V in pairs(Props or{})do(S)[K]=V end
-return S end local AddCorner=function(Radius,Parent)local C=Instance.new(
-'UICorner')C.CornerRadius=UDim.new(0,Radius)C.Parent=Parent end local AddStroke=
-function(Col,Thickness,Parent)local S=Instance.new('UIStroke')S.Color=Col S.
-Thickness=Thickness S.Parent=Parent end local HLine=function(Parent,Y)NewFrame({
-Size=UDim2.new(1,0,0,1),Position=UDim2.new(0,0,0,Y),BackgroundColor3=Colors.
-Border,Parent=Parent})end local ClearChildren=function(Frame)for _,Child in
-ipairs(Frame:GetChildren())do Child:Destroy()end end local SG=Instance.new(
-'ScreenGui')SG.Name='DEX_Explorer'SG.ZIndexBehavior=Enum.ZIndexBehavior.Sibling
-SG.ResetOnSpawn=false SG.DisplayOrder=9999 local Ok=pcall(function()SG.Parent=
-gethui()end)if not Ok then SG.Parent=PlayerGui end local WinW,WinH=980,600 local
-IsFullscreen=false local PreFsSize,PreFsPos local Window=NewFrame({Size=UDim2.
-new(0,WinW,0,WinH),Position=UDim2.new(0.5,-WinW/2,0.5,-WinH/2),BackgroundColor3=
-Colors.Bg,Parent=SG})AddCorner(5,Window)AddStroke(Colors.Border,1,Window)local
-TitleBar=NewFrame({Size=UDim2.new(1,0,0,36),BackgroundColor3=Colors.Panel,Parent
-=Window})HLine(TitleBar,35)local MakeDot=function(Col,X)local D=NewFrame({Size=
-UDim2.new(0,12,0,12),Position=UDim2.new(0,X,0.5,-6),BackgroundColor3=Col,Parent=
-TitleBar})AddCorner(6,D)return D end local DotRed=MakeDot(Colors.Accent,12)local
-DotYellow=MakeDot(Colors.Yellow,30)local DotGreen=MakeDot(Colors.Green,48)
-NewLabel({Text='DEX Explorer by awakenkn',Size=UDim2.new(0,220,1,0),Position=
-UDim2.new(0,72,0,0),TextColor3=Colors.Text2,Font=FontBold,TextSize=12,Parent=
-TitleBar})local SidebarW,RightW,BBarH=240,220,34 local Content=NewFrame({Size=
-UDim2.new(1,0,1,-(36+BBarH)),Position=UDim2.new(0,0,0,36),BackgroundTransparency
-=1,Parent=Window})local Sidebar=NewFrame({Size=UDim2.new(0,SidebarW,1,0),
-BackgroundColor3=Colors.Panel,Parent=Content})AddStroke(Colors.Border,1,Sidebar)
-local SideHdr=NewFrame({Size=UDim2.new(1,0,0,30),BackgroundColor3=Colors.Panel,
-Parent=Sidebar})local Sections={'GAME','NIL','RUNNING'}local ActiveSec='GAME'
-local SecBtns={}for I,Sec in ipairs(Sections)do local Sb=NewButton({Text=Sec,
-Size=UDim2.new(0,62,1,0),Position=UDim2.new(0,(I-1)*62,0,0),
-BackgroundTransparency=1,TextColor3=I==1 and Colors.Text or Colors.Text3,Font=
-FontBold,TextSize=9,Parent=SideHdr})local Ul=NewFrame({Size=UDim2.new(1,-8,0,2),
-Position=UDim2.new(0,4,1,-2),BackgroundColor3=Colors.Accent,
-BackgroundTransparency=I==1 and 0 or 1,Parent=Sb})SecBtns[Sec]={Btn=Sb,Line=Ul}
-end local NodeCountLbl=NewLabel({Text='0',Size=UDim2.new(0,40,1,0),Position=
-UDim2.new(1,-44,0,0),TextColor3=Colors.Accent2,TextXAlignment=Enum.
+for K,V in Props or{}do(L)[K]=V end return L end local NewButton=function(Props)
+local B=Instance.new('TextButton')B.BorderSizePixel=0 B.BackgroundColor3=Colors.
+Panel2 B.TextColor3=Colors.Text2 B.Font=FontMed B.TextSize=10 B.AutoButtonColor=
+false for K,V in Props or{}do(B)[K]=V end return B end local NewTextBox=function
+(Props)local T=Instance.new('TextBox')T.BorderSizePixel=0 T.BackgroundColor3=
+Colors.Panel3 T.TextColor3=Colors.Text T.Font=FontMono T.TextSize=11 T.
+ClearTextOnFocus=false T.TextXAlignment=Enum.TextXAlignment.Left for K,V in
+Props or{}do(T)[K]=V end return T end local NewScroll=function(Props)local S=
+Instance.new('ScrollingFrame')S.BorderSizePixel=0 S.BackgroundTransparency=1 S.
+ScrollBarThickness=3 S.ScrollBarImageColor3=Colors.Muted S.CanvasSize=UDim2.new(
+0,0,0,0)for K,V in Props or{}do(S)[K]=V end return S end local AddCorner=
+function(Radius,Parent)local C=Instance.new('UICorner')C.CornerRadius=UDim.new(0
+,Radius)C.Parent=Parent end local AddStroke=function(Col,Thickness,Parent)local
+S=Instance.new('UIStroke')S.Color=Col S.Thickness=Thickness S.Parent=Parent end
+local HLine=function(Parent,Y)NewFrame({Size=UDim2.new(1,0,0,1),Position=UDim2.
+new(0,0,0,Y),BackgroundColor3=Colors.Border,Parent=Parent})end local
+ClearChildren=function(Frame)for _,Child in Frame:GetChildren()do Child:Destroy(
+)end end local SG=Instance.new('ScreenGui')SG.Name='DEX_Explorer'SG.
+ZIndexBehavior=Enum.ZIndexBehavior.Sibling SG.ResetOnSpawn=false SG.DisplayOrder
+=9999 local Ok=pcall(function()SG.Parent=gethui()end)if not Ok then SG.Parent=
+PlayerGui end local WinW,WinH=980,600 local IsFullscreen=false local PreFsSize,
+PreFsPos local Window=NewFrame({Size=UDim2.new(0,WinW,0,WinH),Position=UDim2.
+new(0.5,-WinW/2,0.5,-WinH/2),BackgroundColor3=Colors.Bg,Parent=SG})AddCorner(5,
+Window)AddStroke(Colors.Border,1,Window)local TitleBar=NewFrame({Size=UDim2.new(
+1,0,0,36),BackgroundColor3=Colors.Panel,Parent=Window})HLine(TitleBar,35)local
+MakeDot=function(Col,X)local D=NewFrame({Size=UDim2.new(0,12,0,12),Position=
+UDim2.new(0,X,0.5,-6),BackgroundColor3=Col,Parent=TitleBar})AddCorner(6,D)return
+D end local DotRed=MakeDot(Colors.Accent,12)local DotYellow=MakeDot(Colors.
+Yellow,30)local DotGreen=MakeDot(Colors.Green,48)NewLabel({Text=
+'DEX Explorer by awakenkn',Size=UDim2.new(0,220,1,0),Position=UDim2.new(0,72,0,0
+),TextColor3=Colors.Text2,Font=FontBold,TextSize=12,Parent=TitleBar})local
+SidebarW,RightW,BBarH=240,220,34 local Content=NewFrame({Size=UDim2.new(1,0,1,-(
+36+BBarH)),Position=UDim2.new(0,0,0,36),BackgroundTransparency=1,Parent=Window})
+local Sidebar=NewFrame({Size=UDim2.new(0,SidebarW,1,0),BackgroundColor3=Colors.
+Panel,Parent=Content})AddStroke(Colors.Border,1,Sidebar)local SideHdr=NewFrame({
+Size=UDim2.new(1,0,0,30),BackgroundColor3=Colors.Panel,Parent=Sidebar})local
+Sections={'GAME','NIL','RUNNING'}local ActiveSec='GAME'local SecBtns={}for I,Sec
+in ipairs(Sections)do local Sb=NewButton({Text=Sec,Size=UDim2.new(0,62,1,0),
+Position=UDim2.new(0,(I-1)*62,0,0),BackgroundTransparency=1,TextColor3=I==1 and
+Colors.Text or Colors.Text3,Font=FontBold,TextSize=9,Parent=SideHdr})local Ul=
+NewFrame({Size=UDim2.new(1,-8,0,2),Position=UDim2.new(0,4,1,-2),BackgroundColor3
+=Colors.Accent,BackgroundTransparency=I==1 and 0 or 1,Parent=Sb})SecBtns[Sec]={
+Btn=Sb,Line=Ul}end local NodeCountLbl=NewLabel({Text='0',Size=UDim2.new(0,40,1,0
+),Position=UDim2.new(1,-44,0,0),TextColor3=Colors.Accent2,TextXAlignment=Enum.
 TextXAlignment.Right,TextSize=10,Font=FontBold,Parent=SideHdr})HLine(Sidebar,30)
 local FilterStrip=NewScroll({Size=UDim2.new(1,0,0,26),Position=UDim2.new(0,0,0,
 31),ScrollingDirection=Enum.ScrollingDirection.X,ScrollBarThickness=0,Parent=
@@ -230,11 +229,11 @@ Colors.Text2,TextSize=11,Parent=CenterHdr})local SelPath=NewLabel({Text=
 Right,Parent=CenterHdr})local TabBar=NewFrame({Size=UDim2.new(1,0,0,28),Position
 =UDim2.new(0,0,0,52),BackgroundColor3=Colors.Panel,Parent=Center})AddStroke(
 Colors.Border,1,TabBar)local Tabs={'Properties','Children','Source'}local
-TabBtns={}local ActiveTab='Properties'for I,Name in ipairs(Tabs)do local Tb=
-NewButton({Text=Name:upper(),Size=UDim2.new(0,88,1,0),Position=UDim2.new(0,(I-1)
-*90,0,0),BackgroundTransparency=1,TextColor3=I==1 and Colors.Text or Colors.
-Text3,Font=FontBold,TextSize=9,Parent=TabBar})local Ul=NewFrame({Size=UDim2.new(
-1,-16,0,2),Position=UDim2.new(0,8,1,-2),BackgroundColor3=Colors.Accent,
+TabBtns={}local ActiveTab='Properties'for I,Name in Tabs do local Tb=NewButton({
+Text=Name:upper(),Size=UDim2.new(0,88,1,0),Position=UDim2.new(0,(I-1)*90,0,0),
+BackgroundTransparency=1,TextColor3=I==1 and Colors.Text or Colors.Text3,Font=
+FontBold,TextSize=9,Parent=TabBar})local Ul=NewFrame({Size=UDim2.new(1,-16,0,2),
+Position=UDim2.new(0,8,1,-2),BackgroundColor3=Colors.Accent,
 BackgroundTransparency=I==1 and 0 or 1,Parent=Tb})TabBtns[Name]={Btn=Tb,Line=Ul}
 end local PropsScroll=NewScroll({Size=UDim2.new(1,0,1,-80),Position=UDim2.new(0,
 0,0,80),Parent=Center})local RightPanel=NewFrame({Size=UDim2.new(0,RightW,1,0),
@@ -263,15 +262,15 @@ SyncSelChip=function()SelChip.BackgroundColor3=FilterToSelected and Color3.new(
 Colors.Teal.R*0.25,Colors.Teal.G*0.25,Colors.Teal.B*0.25)or Colors.Panel2 end
 local RenderMethods=function(Inst)assert(typeof(Inst)=='Instance',
 'Inst must be Instance')ClearChildren(MethodsScroll)local List={}if Methods[Inst
-.ClassName]then for _,M in ipairs(Methods[Inst.ClassName])do table.insert(List,M
-)end end for _,M in ipairs(Methods.__base)do table.insert(List,M)end local
-RetColors={string=Colors.Yellow,number=Colors.Blue,bool=Colors.Green,void=Colors
-.Text3,['Instance[]']=Colors.Purple,['Instance?']=Colors.Purple,Instance=Colors.
-Purple,Variant=Colors.Teal,RBXScriptSignal=Colors.Orange}local RowH=36 for I,M
-in ipairs(List)do local Y=(I-1)*RowH local Item=NewFrame({Size=UDim2.new(1,0,0,
-RowH),Position=UDim2.new(0,0,0,Y),BackgroundTransparency=1,Parent=MethodsScroll}
-)Item.MouseEnter:Connect(function()TweenService:Create(Item,TweenInfo.new(0.06),
-{BackgroundTransparency=0,BackgroundColor3=Colors.Panel2}):Play()end)Item.
+.ClassName]then for _,M in Methods[Inst.ClassName]do table.insert(List,M)end end
+for _,M in ipairs(Methods.__base)do table.insert(List,M)end local RetColors={
+string=Colors.Yellow,number=Colors.Blue,bool=Colors.Green,void=Colors.Text3,[
+'Instance[]']=Colors.Purple,['Instance?']=Colors.Purple,Instance=Colors.Purple,
+Variant=Colors.Teal,RBXScriptSignal=Colors.Orange}local RowH=36 for I,M in List
+do local Y=(I-1)*RowH local Item=NewFrame({Size=UDim2.new(1,0,0,RowH),Position=
+UDim2.new(0,0,0,Y),BackgroundTransparency=1,Parent=MethodsScroll})Item.
+MouseEnter:Connect(function()TweenService:Create(Item,TweenInfo.new(0.06),{
+BackgroundTransparency=0,BackgroundColor3=Colors.Panel2}):Play()end)Item.
 MouseLeave:Connect(function()TweenService:Create(Item,TweenInfo.new(0.06),{
 BackgroundTransparency=1}):Play()end)NewLabel({Text=M[1]..'()',Size=UDim2.new(1,
 -8,0,18),Position=UDim2.new(0,8,0,4),TextColor3=Colors.Text,TextSize=11,Parent=
@@ -554,26 +553,35 @@ SearchPending=false RebuildTree()end)end)MakeBBarBtn('Refresh',nil,100,function(
 'Source'then RenderSource(SelInst)end RenderMethods(SelInst)end end)MakeBBarBtn(
 'Copy Path',nil,204,function()if SelInst then local P=FullPath(SelInst)pcall(
 function()setclipboard(P)end)SetStatus('Copied: '..P,Colors.Green,3)end end)
-DotRed.InputBegan:Connect(function(Inp)if Inp.UserInputType==Enum.UserInputType.
-MouseButton1 then SG:Destroy()end end)DotYellow.InputBegan:Connect(function(Inp)
-if Inp.UserInputType==Enum.UserInputType.MouseButton1 then Window.Visible=false
-end end)DotGreen.InputBegan:Connect(function(Inp)if Inp.UserInputType~=Enum.
-UserInputType.MouseButton1 then return end if not IsFullscreen then PreFsSize=
-Window.Size PreFsPos=Window.Position TweenService:Create(Window,TweenInfo.new(
-0.2,Enum.EasingStyle.Quad),{Size=UDim2.new(1,0,1,0),Position=UDim2.new(0,0,0,0)}
-):Play()IsFullscreen=true DotGreen.BackgroundColor3=Color3.fromRGB(22,160,60)
-else TweenService:Create(Window,TweenInfo.new(0.2,Enum.EasingStyle.Quad),{Size=
-PreFsSize,Position=PreFsPos}):Play()IsFullscreen=false DotGreen.BackgroundColor3
-=Colors.Green end end)UserInputService.InputBegan:Connect(function(Inp,Gpe)if
-Gpe then return end if Inp.KeyCode==Enum.KeyCode.End then Window.Visible=true
-end end)do local Dragging,DStart,WStart TitleBar.InputBegan:Connect(function(Inp
-)if Inp.UserInputType==Enum.UserInputType.MouseButton1 and not IsFullscreen then
+local ResolveCFrameFromInstance=function(Instance)if not Instance then return
+end local Success,Result Success,Result=pcall(function()return Instance.CFrame
+end)if Success and typeof(Result)=='CFrame'then return Result end Success,Result
+=pcall(function()return Instance.WorldCFrame end)if Success and typeof(Result)==
+'CFrame'then return Result end Success,Result=pcall(function()return Instance:
+GetPivot()end)if Success and typeof(Result)=='CFrame'then return Result end end
+MakeBBarBtn('Teleport',nil,304,function()local Character=LocalPlayer.Character
+local HumanoidRootPart=Character and Character:FindFirstChild('HumanoidRootPart'
+)if not HumanoidRootPart or not SelInst then return end local TargetCFrame=
+ResolveCFrameFromInstance(SelInst)if TargetCFrame then HumanoidRootPart.CFrame=
+TargetCFrame+Vector3.new(0,3,0)end end)DotRed.InputBegan:Connect(function(Inp)if
+Inp.UserInputType==Enum.UserInputType.MouseButton1 then SG:Destroy()end end)
+DotYellow.InputBegan:Connect(function(Inp)if Inp.UserInputType==Enum.
+UserInputType.MouseButton1 then Window.Visible=false end end)DotGreen.InputBegan
+:Connect(function(Inp)if Inp.UserInputType~=Enum.UserInputType.MouseButton1 then
+return end if not IsFullscreen then PreFsSize=Window.Size PreFsPos=Window.
+Position TweenService:Create(Window,TweenInfo.new(0.2,Enum.EasingStyle.Quad),{
+Size=UDim2.new(1,0,1,0),Position=UDim2.new(0,0,0,0)}):Play()IsFullscreen=true
+DotGreen.BackgroundColor3=Color3.fromRGB(22,160,60)else TweenService:Create(
+Window,TweenInfo.new(0.2,Enum.EasingStyle.Quad),{Size=PreFsSize,Position=
+PreFsPos}):Play()IsFullscreen=false DotGreen.BackgroundColor3=Colors.Green end
+end)UserInputService.InputBegan:Connect(function(Inp,Gpe)if Gpe then return end
+if Inp.KeyCode==Enum.KeyCode.End then Window.Visible=true end end)do local
+Dragging,DStart,WStart TitleBar.InputBegan:Connect(function(Inp)if Inp.
+UserInputType==Enum.UserInputType.MouseButton1 and not IsFullscreen then
 Dragging=true DStart=Inp.Position WStart=Window.Position end end)
 UserInputService.InputChanged:Connect(function(Inp)if Dragging and Inp.
 UserInputType==Enum.UserInputType.MouseMovement then local D=Inp.Position-DStart
 Window.Position=UDim2.new(WStart.X.Scale,WStart.X.Offset+D.X,WStart.Y.Scale,
 WStart.Y.Offset+D.Y)end end)UserInputService.InputEnded:Connect(function(Inp)if
 Inp.UserInputType==Enum.UserInputType.MouseButton1 then Dragging=false end end)
-end local AutoExpand={Workspace=true,Players=true,ReplicatedStorage=true,
-Lighting=true,StarterGui=true}for _,Child in ipairs(game:GetChildren())do if
-AutoExpand[Child.ClassName]then ExpandedSet[Child]=true end end RebuildTree()
+end RebuildTree()
